@@ -29,7 +29,7 @@ public class BusinessObject {
     }
 
     public void del(String id) {
-        dao.delData(id);
+        dao.deleteData(id);
     }
     public ArrayList<Data> getAll(){
         return dao.getData();

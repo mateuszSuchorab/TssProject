@@ -1,7 +1,6 @@
 /*
 
  */
-
 package main;
 
 import to.Data;
@@ -22,27 +21,23 @@ import javax.servlet.http.HttpSession;
  */
 @WebServlet(name = "MainServlet", urlPatterns = {"/MainServlet"})
 public class MainServlet extends HttpServlet {
-        
-    
-    
+
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 
-       
         // get current session, or initialise one if none
         HttpSession sess;
         sess = request.getSession(false);
-               
-        if (sess.getAttribute("bo")==null) {
+
+        if (sess.getAttribute("bo") == null) {
             sess.setAttribute("bo", new BusinessObject());
         }
 
         BusinessObject bo = (BusinessObject) sess.getAttribute("bo");
-        
+
         System.out.println("adding BOO");
         //bo.add("mojeImie", "twojeImie");
-                
-        
+
         response.setContentType("text/html;charset=UTF-8");
 
         String command = request.getParameter("command");
@@ -65,6 +60,16 @@ public class MainServlet extends HttpServlet {
             bo.del(id);
         }
         ArrayList<Data> userData = bo.getAll();
+        if (bo.getAll() == null) {
+            System.out.println("NULL");
+        } else {
+            System.out.println("NOT NULL" + userData.toString() + " lllen: " + userData.size());
+        }
+        for (Data user : userData) {
+            System.out.println();
+            System.out.println("user Id: " + user.getId() + " user name: " + user.getName() + " user surnale: " + user.getSurname());
+
+        }
         request.setAttribute("userData", userData);
 
         RequestDispatcher rd = request.getRequestDispatcher("data.jsp");
