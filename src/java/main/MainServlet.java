@@ -1,9 +1,5 @@
-/*
-
- */
 package main;
 
-import to.Data;
 import buisness.BusinessObject;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -14,6 +10,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import to.Vehicle;
 
 /**
  *
@@ -35,9 +32,6 @@ public class MainServlet extends HttpServlet {
 
         BusinessObject bo = (BusinessObject) sess.getAttribute("bo");
 
-        System.out.println("adding BOO");
-        //bo.add("mojeImie", "twojeImie");
-
         response.setContentType("text/html;charset=UTF-8");
 
         String command = request.getParameter("command");
@@ -47,30 +41,21 @@ public class MainServlet extends HttpServlet {
         }
 
         if (command.equals("add")) {
-            String name = request.getParameter("name");
-            String surname = request.getParameter("surname");
-            bo.add(name, surname);
+            String make = request.getParameter("make");
+            String model = request.getParameter("model");
+            bo.add(make, model);
         } else if (command.equals("edit")) {
             String id = request.getParameter("id");
-            String name = request.getParameter("name");
-            String surname = request.getParameter("surname");
-            bo.edit(id, name, surname);
+            String make = request.getParameter("make");
+            String model = request.getParameter("model");
+            bo.edit(id, make, model);
         } else if (command.equals("del")) {
             String id = request.getParameter("id");
             bo.del(id);
         }
-        ArrayList<Data> userData = bo.getAll();
-        if (bo.getAll() == null) {
-            System.out.println("NULL");
-        } else {
-            System.out.println("NOT NULL" + userData.toString() + " lllen: " + userData.size());
-        }
-        for (Data user : userData) {
-            System.out.println();
-            System.out.println("user Id: " + user.getId() + " user name: " + user.getName() + " user surnale: " + user.getSurname());
+        ArrayList<Vehicle> vehicles = bo.getAll();
 
-        }
-        request.setAttribute("userData", userData);
+        request.setAttribute("vehicles", vehicles);
 
         RequestDispatcher rd = request.getRequestDispatcher("data.jsp");
         rd.forward(request, response);

@@ -1,7 +1,7 @@
 <%-- 
     Document   : logout
-    Created on : 2015-05-06, 18:34:32
-    Author     : sebastian
+    Created on : 2018-05-25, 13:12:58
+    Author     : Mateusz Suchorab <suchorab.mateusz@gmail.com>
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>

@@ -1,67 +1,70 @@
 package dao;
 
 import java.sql.ResultSet;
-import to.Data;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import to.Vehicle;
 
-public class DataService {
-
-    ArrayList<Data> data = new ArrayList<Data>();
-
-    public DataService() {
-    }
+/**
+ *
+ * @author Mateusz Suchorab <suchorab.mateusz@gmail.com>
+ */
+public class VehicleService {
 
     String error;
-    String select = "SELECT * FROM people";
+    String select = "SELECT * FROM vehicles";
     int lastId;
+    ArrayList<Vehicle> vehicles = new ArrayList<>();
 
-    public ArrayList<Data> getData() {
-        ResultSet rs = null;
-                    data.clear();
+    public VehicleService() {
+    }
+
+    public ArrayList<Vehicle> getVehicles() {
+        ResultSet rs;
+        vehicles.clear();
         try {
             rs = getConnectionFromContext()
                     .createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_READ_ONLY)
                     .executeQuery(select);
-            int id = 1;
-            String name;
-            String lastName;
+            int id;
+            String make;
+            String model;
             while (rs.next()) {
                 id = rs.getInt("ID");
-                name = (rs.getString("NAME"));
-                lastName = (rs.getString("LASTNAME"));
-                data.add(new Data(id, name, lastName));
+                make = (rs.getString("MAKE"));
+                model = (rs.getString("MODEL"));
+                vehicles.add(new Vehicle(id, make, model));
                 lastId = id++;
             }
         } catch (SQLException ex) {
             error = ex.toString();
         }
-        return data;
-        
+        return vehicles;
+
     }
 
-    public void addData(String name, String lastName) {
+    public void addVehicle(String make, String model) {
         try {
             getConnectionFromContext().createStatement()
-                    .executeUpdate("INSERT INTO people (\"ID\",\"NAME\",\"LASTNAME\") values(" + ++lastId + ", '" + name + "','" + lastName + "')");
+                    .executeUpdate("INSERT INTO vehicles (\"ID\",\"MAKE\",\"MODEL\") values(" + ++lastId + ", '" + make + "','" + model + "')");
         } catch (SQLException ex) {
             error = ex.toString();
         }
     }
 
-    public void deleteData(String id) {
+    public void delVehicle(String id) {
         try {
             getConnectionFromContext().createStatement()
-                    .executeUpdate("DELETE FROM people WHERE id=" + id + "");
+                    .executeUpdate("DELETE FROM vehicles WHERE id=" + id + "");
         } catch (SQLException ex) {
             error = ex.toString();
         }
     }
 
-    public void editData(String id, String name, String lastName) {
+    public void editVehicle(String id, String make, String model) {
         try {
             getConnectionFromContext().createStatement()
-                    .executeUpdate("UPDATE people SET \"NAME\"='" + name + "',\"LASTNAME\"='" + lastName + "' WHERE id=" + id + "");
+                    .executeUpdate("UPDATE vehicles SET \"MAKE\"='" + make + "',\"MODEL\"='" + model + "' WHERE id=" + id + "");
 
         } catch (SQLException ex) {
             String sBlad = ex.toString();
