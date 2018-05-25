@@ -1,7 +1,7 @@
 <%-- 
     Document   : error
-    Created on : 2015-05-02, 21:15:25
-    Author     : sebastian
+    Created on : 2018-05-25, 13:12:22
+    Author     : Mateusz Suchorab <suchorab.mateusz@gmail.com>
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>

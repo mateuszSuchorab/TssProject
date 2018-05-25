@@ -1,7 +1,7 @@
 <%-- 
-    Document   : index
-    Created on : 2015-04-13, 19:03:49
-    Author     : sebastian
+    Document   : data
+    Created on : 2018-05-25, 13:12:06
+    Author     : Mateusz Suchorab <suchorab.mateusz@gmail.com>
 --%>
 
 
@@ -17,12 +17,12 @@
     <body>
         <h1>Hello <%=request.getRemoteUser()%></h1>
         <table border='1'>
-            <c:forEach items="${userData}" var="item">
+            <c:forEach items="${vehicles}" var="item">
                 <tr>
                 <form method="POST" action="MainServlet?command=edit&id=${item.id}">
                     <td>${item.id}</td>
-                    <td><input type="text" name="name" value="${item.name}"/></td>
-                    <td><input type="text" name="surname" value="${item.surname}"/></td>
+                    <td><input type="text" name="make" value="${item.make}"/></td>
+                    <td><input type="text" name="model" value="${item.model}"/></td>
                     <td><button type="submit">edit</button></td>
                 </form>
                 <td><a href="MainServlet?command=del&id=${item.id}"><button>del</button></a></td>
@@ -31,8 +31,8 @@
         </c:forEach>
         <tr>
         <form method="POST" action="MainServlet?command=add">
-            <td><input name="name" type="text" placeholder="name"/></td>
-            <td><input name="surname" type="text" placeholder="surname"/></td>
+            <td><input name="make" type="text" placeholder="make"/></td>
+            <td><input name="model" type="text" placeholder="model"/></td>
             <td><button type="submit">add</button></td>
         </form>
     </tr>

@@ -1,12 +1,8 @@
-/*
-
- */
-
 package buisness;
 
-import to.Data;
-import dao.DataService;
+import dao.VehicleService;
 import java.util.ArrayList;
+import to.Vehicle;
 
 /**
  *
@@ -14,24 +10,24 @@ import java.util.ArrayList;
  */
 public class BusinessObject {
 
-    DataService dao;
+    VehicleService dao;
 
     public BusinessObject() {
-        dao = new DataService();
+        dao = new VehicleService();
     }
 
-    public void add(String name, String surname) {
-        dao.addData(name, surname);
+    public void add(String make, String model) {
+        dao.addVehicle(make, model);
     }
 
-    public void edit(String id, String name, String surname) {
-        dao.editData(id, name, surname);
+    public void edit(String id, String name, String model) {
+        dao.editVehicle(id, name, model);
     }
 
     public void del(String id) {
-        dao.deleteData(id);
+        dao.delVehicle(id);
     }
-    public ArrayList<Data> getAll(){
-        return dao.getData();
+    public ArrayList<Vehicle> getAll(){
+        return dao.getVehicles();
     }
 }
