@@ -8,15 +8,15 @@ package to;
  *
  * @author Mateusz Suchorab <suchorab.mateusz@gmail.com>
  */
-public class User {
+public class Data {
     Long id;
     String name;
     String surname;
 
-    public User() {
+    public Data() {
     }
 
-    public User(Long id, String name, String surname) {
+    public Data(Long id, String name, String surname) {
         this.id = id;
         this.name = name;
         this.surname = surname;

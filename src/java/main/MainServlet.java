@@ -4,7 +4,7 @@
 
 package main;
 
-import to.User;
+import to.Data;
 import buisness.BusinessObject;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -38,7 +38,11 @@ public class MainServlet extends HttpServlet {
         }
 
         BusinessObject bo = (BusinessObject) sess.getAttribute("bo");
-
+        
+        System.out.println("adding BOO");
+        //bo.add("mojeImie", "twojeImie");
+                
+        
         response.setContentType("text/html;charset=UTF-8");
 
         String command = request.getParameter("command");
@@ -60,7 +64,7 @@ public class MainServlet extends HttpServlet {
             String id = request.getParameter("id");
             bo.del(id);
         }
-        ArrayList<User> userData = bo.getAll();
+        ArrayList<Data> userData = bo.getAll();
         request.setAttribute("userData", userData);
 
         RequestDispatcher rd = request.getRequestDispatcher("data.jsp");

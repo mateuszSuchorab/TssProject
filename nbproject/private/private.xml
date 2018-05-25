@@ -2,6 +2,11 @@
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
-        <group/>
+        <group>
+            <file>file:/E:/Pobrane%20z%20internetu%20do%20pracy/babun/.babun/cygwin/home/Mati/TssProjectMoje/web/META-INF/context.xml</file>
+            <file>file:/E:/Pobrane%20z%20internetu%20do%20pracy/babun/.babun/cygwin/home/Mati/TssProjectMoje/web/WEB-INF/web.xml</file>
+            <file>file:/E:/Pobrane%20z%20internetu%20do%20pracy/babun/.babun/cygwin/home/Mati/TssProjectMoje/src/java/dao/UserService.java</file>
+            <file>file:/E:/Pobrane%20z%20internetu%20do%20pracy/babun/.babun/cygwin/home/Mati/TssProjectMoje/src/java/main/MainServlet.java</file>
+        </group>
     </open-files>
 </project-private>

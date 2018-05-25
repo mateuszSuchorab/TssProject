@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Context antiJARLocking="true" path="/TssProject">
-    
-<Resource name="jdbc/tssproject" auth="Container" type="javax.sql.DataSource"
-               maxActive="50" maxIdle="30" maxWait="10000"
-               username="root" password="" 
-               driverClassName="org.apache.derby.jdbc.ClientDriver"
-               url="jdbc:mysql:/localhost:3306/tssproject" />
+<Context antiJARLocking="true" path="/TssProjectMoje">
+  <Resource name="jdbc/tutorialsdb" auth="Container" type="javax.sql.DataSource"
+            maxActive="50" maxIdle="30" maxWait="10000"
+            username="ja" password="ja" 
+            driverClassName="org.apache.derby.jdbc.ClientDriver"
+            url="jdbc:derby://localhost:1527/tutorialsdb" />
 </Context>

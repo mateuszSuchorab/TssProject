@@ -4,7 +4,7 @@
 
 package dao;
 
-import to.User;
+import to.Data;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
@@ -12,21 +12,21 @@ import java.util.ArrayList;
  *
  * @author Mateusz Suchorab <suchorab.mateusz@gmail.com>
  */
-public class UserService {
-ArrayList<User> data;
+public class DataService {
+ArrayList<Data> data;
 
-    public UserService() {
+    public DataService() {
     }
 
     
-    public ArrayList<User> getData() {
+    public ArrayList<Data> getData() {
         java.sql.ResultSet wynikZapytania = null;
-        data = new ArrayList<User>();
+        data = new ArrayList<Data>();
         try {
 
             wynikZapytania = getConnectionFromContext()
                     .createStatement(java.sql.ResultSet.TYPE_SCROLL_INSENSITIVE, java.sql.ResultSet.CONCUR_READ_ONLY)
-                    .executeQuery("select * from users");
+                    .executeQuery("select * from people");
 
             Long id;
             String name;
@@ -38,7 +38,7 @@ ArrayList<User> data;
                 name = (wynikZapytania.getString("NAME"));
                 surname = (wynikZapytania.getString("SURNAME"));
 
-                data.add(new User(id, name, surname));
+                data.add(new Data(id, name, surname));
 
             }
 
@@ -53,7 +53,7 @@ ArrayList<User> data;
 
             getConnectionFromContext()
                     .createStatement()
-                    .executeUpdate("insert into users (\"NAME\",\"SURNAME\") values('"+name+"','"+surname+"')");
+                    .executeUpdate("insert into people (\"NAME\",\"SURNAME\") values('"+name+"','"+surname+"')");
 
         } catch (SQLException ex) {
             String sBlad = ex.toString();
@@ -65,7 +65,7 @@ ArrayList<User> data;
 
             getConnectionFromContext()
                     .createStatement()
-                    .executeUpdate("delete from users where id="+id);
+                    .executeUpdate("delete from people where id="+id);
 
         } catch (SQLException ex) {
             String sBlad = ex.toString();
@@ -77,7 +77,7 @@ ArrayList<User> data;
 
             getConnectionFromContext()
                     .createStatement()
-                    .executeUpdate("update users set \"NAME\"='"+name+"',\"SURNAME\"='"+surname+"' where id="+id);
+                    .executeUpdate("update people set \"NAME\"='"+name+"',\"SURNAME\"='"+surname+"' where id="+id);
 
         } catch (SQLException ex) {
             String sBlad = ex.toString();

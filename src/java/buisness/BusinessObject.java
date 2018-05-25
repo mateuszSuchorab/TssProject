@@ -4,8 +4,8 @@
 
 package buisness;
 
-import to.User;
-import dao.UserService;
+import to.Data;
+import dao.DataService;
 import java.util.ArrayList;
 
 /**
@@ -14,10 +14,10 @@ import java.util.ArrayList;
  */
 public class BusinessObject {
 
-    UserService dao;
+    DataService dao;
 
     public BusinessObject() {
-        dao = new UserService();
+        dao = new DataService();
     }
 
     public void add(String name, String surname) {
@@ -31,7 +31,7 @@ public class BusinessObject {
     public void del(String id) {
         dao.delData(id);
     }
-    public ArrayList<User> getAll(){
+    public ArrayList<Data> getAll(){
         return dao.getData();
     }
 }
