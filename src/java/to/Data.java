@@ -9,24 +9,24 @@ package to;
  * @author Mateusz Suchorab <suchorab.mateusz@gmail.com>
  */
 public class Data {
-    Long id;
+    int id;
     String name;
     String surname;
 
     public Data() {
     }
 
-    public Data(Long id, String name, String surname) {
+    public Data(int id, String name, String surname) {
         this.id = id;
         this.name = name;
         this.surname = surname;
     }
 
-    public Long getId() {
+    public int getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(int id) {
         this.id = id;
     }
 
