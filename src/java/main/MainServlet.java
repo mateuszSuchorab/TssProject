@@ -56,6 +56,7 @@ public class MainServlet extends HttpServlet {
         ArrayList<Vehicle> vehicles = bo.getAll();
 
         request.setAttribute("vehicles", vehicles);
+        request.setAttribute("vehiclesSize", vehicles.size()+1);
 
         RequestDispatcher rd = request.getRequestDispatcher("data.jsp");
         rd.forward(request, response);
