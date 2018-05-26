@@ -48,11 +48,10 @@
                 margin: -400px 0 0 -250px;
                 
             }
-            .data h1, data h3 { color: #fff; text-shadow: 0 0 10px rgba(0,0,0,0.3); letter-spacing:1px; text-align:center; }
+            .data h1, .data h3, .data table tbody tr td { color: #fff; text-shadow: 0 0 10px rgba(0,0,0,0.3); letter-spacing:1px; text-align:center; }
 
             input { 
                 width: 100%; 
-                margin-bottom: 10px; 
                 background: rgba(0,0,0,0.3);
                 border: none;
                 outline: none;
@@ -82,7 +81,7 @@
                 <c:forEach items="${vehicles}" var="item">
                     <tr>
                     <form method="POST" action="MainServlet?command=edit&id=${item.id}">
-                        <h1><td>${item.id}</td></h1>
+                        <td>${item.id}</td>
                         <td><input type="text" name="make" value="${item.make}"/></td>
                         <td><input type="text" name="model" value="${item.model}"/></td>
                         <td><button type="submit" class="btn btn-primary btn-block btn-large" >edit</button></td>
@@ -100,7 +99,7 @@
                 </form>
                 </tr>
             </table>            
-                    <h3><a href="logout.jsp"><button class="btn btn-primary btn-block btn-large" >Logout</button></a></h3>            
+                    <a href="logout.jsp"><button class="btn btn-primary btn-block btn-large" >Logout</button></a>          
         </div>
     </body>
    
